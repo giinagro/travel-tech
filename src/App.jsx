@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './supabase'
+import "./App.css";
 
 function App(){
 
@@ -21,14 +22,23 @@ function App(){
 
   return(
     <>
-    <h1> TravelTech </h1>
-    <p> Viagens Disponiveis </p>
+      <header> 
+        <h1> TravelTech </h1>
+         <p> Viagens Disponiveis </p>
+      </header>
 
+      <section className='lista'>
     {
       viagens.map( ( viagem ) => (
-        <p key={ viagem.id}> {viagem.destino} - R$ {viagem.preco } </p> 
+        <div key={ viagem.id } className='card' >
+          <h3> Nome: {viagem.destino} </h3>
+          <p> R${viagem.preco} </p>
+          <button> Ver viagem </button>
+        </div>
       ) )
     }
+    </section>
+    
     </>
   )
 } 
